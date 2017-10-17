@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Johanna Odersky</title>
+    </head>
+    <body>
+	<header style="text-align: center;">
+	    <h1>Johanna Odersky</h1>
+	    <p>Lives and works in Frankfurt am Main, Germany</p>
+	    <p>johanna.odersky@gmail.com</p>
+	</header>
+	<nav>
+	    <ul>
+		{% for work in site.works %}
+		<li><a href="/works#{{work.title}}">{{work.title}}</a></li>
+		{% endfor %}
+		<li><a href="#">soundcloud</a></li>
+	    </ul>
+	</nav>
+	<main>
+	    {{ content }}
+	</main>
+    </body
+</html>
