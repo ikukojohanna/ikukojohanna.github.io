@@ -5,15 +5,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Johanna Odersky</title>
+	<style>
+	 a {
+	     color: #000000;
+	     text-decoration: none;
+	 }
+	 a:hover {
+	     text-decoration: underline;
+	 }
+	</style>
     </head>
     <body>
 	<header style="text-align: center;">
-	    <h1>Johanna Odersky</h1>
+	    <p id="top">Johanna Odersky</p>
 	    <p>Lives and works in Frankfurt am Main, Germany</p>
 	    <p>johanna.odersky@gmail.com</p>
 	</header>
 	<nav>
-	    <ul>
+	    <ul style="list-stryle: none; padding-left: 0;">
 		{% for work in site.works %}
 		<li><a href="/works#{{work.title}}">{{work.title}}</a></li>
 		{% endfor %}
