@@ -13,20 +13,48 @@
 	 a:hover {
 	     text-decoration: underline;
 	 }
+	 header {
+	     margin-top: 3em;
+	 }
+	 nav, main {
+	     margin-top: 4em;
+	 }
+	 nav ul {
+	     margin-bottom: 2em;
+	     list-style: none;
+	 }
+	 h1, h2, h3, h4, h5, h6 {
+	     font-size: medium;
+	     font-weight: normal;
+	 }
+	 .work {
+	     margin-top: 3em;
+	 }
+	 .work > img {
+	     display: block;
+	     margin-left: auto;
+	     margin-right: auto;
+	     margin-bottom: 10em;
+	     max-width: 60%;
+	 }
 	</style>
     </head>
     <body>
 	<header style="text-align: center;">
-	    <h1 id="title" style="font-size: medium; font-weight: normal;">Johanna Odersky</h1>
+	    <h1 id="title">Johanna Odersky</h1>
 	    <p>Lives and works in Frankfurt am Main, Germany</p>
 	    <p>johanna.odersky@gmail.com</p>
 	</header>
 	<nav>
-	    <ul style="list-stryle: none; padding-left: 0;">
+	    <ul>
 		{% for work in site.works %}
 		<li><a href="/works#{{work.title}}">{{work.title}}</a></li>
 		{% endfor %}
-		<li><a href="#">soundcloud</a></li>
+	    </ul>
+	    <span>Iku</span>
+	    <ul>
+		<li><a href="https://genot.bandcamp.com/album/fugue-some-temporal-patterns-other-than-the-forward-march">Fugue: Some Temporal Patterns Other Than the Forward March</a></li>
+		<li><a href="https://soundcloud.com/ikukojohanna">SoundCloud</a></li>
 	    </ul>
 	</nav>
 	<main>
