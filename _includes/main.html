@@ -15,9 +15,10 @@
 	 }
 	 header {
 	     margin-top: 3em;
+	     margin-bottom: 4em;
 	 }
-	 nav, main {
-	     margin-top: 4em;
+	 nav {
+	     margin-bottom: 4em;
 	 }
 	 nav ul {
 	     margin-bottom: 2em;
@@ -28,14 +29,21 @@
 	     font-weight: normal;
 	 }
 	 .work {
-	     margin-top: 3em;
+	     width: 1028px;
+	     margin-left: auto;
+	     margin-right: auto;
+	 }
+	 @media only screen and (max-width: 1028px) {
+	     .work {
+		 width: 100%;
+	     }
 	 }
 	 .work > img {
 	     display: block;
 	     margin-left: auto;
 	     margin-right: auto;
 	     margin-bottom: 5em;
-	     max-width: 60%;
+	     max-width: 100%;
 	 }
 	</style>
     </head>
