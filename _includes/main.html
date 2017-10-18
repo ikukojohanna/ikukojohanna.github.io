@@ -13,30 +13,38 @@
 	 a:hover {
 	     text-decoration: underline;
 	 }
-	 header {
-	     margin-top: 3em;
-	     margin-bottom: 4em;
-	 }
 	 nav {
 	     margin-bottom: 4em;
 	 }
-	 nav ul {
+	 ul {
 	     margin-bottom: 2em;
 	     list-style: none;
+	 }
+	 li {
+	     margin-bottom: 1em;
 	 }
 	 h1, h2, h3, h4, h5, h6 {
 	     font-size: medium;
 	     font-weight: normal;
+	     margin-top: 4em;
+	     margin-bottom: 2em;
 	 }
-	 .work {
+	 footer {
+	     text-align: center;
+	     font-size: small;
+	 }
+	 .container {
 	     width: 1028px;
 	     margin-left: auto;
 	     margin-right: auto;
 	 }
 	 @media only screen and (max-width: 1028px) {
-	     .work {
+	     .container {
 		 width: 100%;
 	     }
+	 }
+	 .work {
+	     margin-bottom: 5em;
 	 }
 	 .work > img {
 	     display: block;
@@ -45,28 +53,38 @@
 	     margin-top: 5em;
 	     max-width: 100%;
 	 }
+	 .work > h1 {
+	     margin-top: 0;
+	     margin-bottom: 0;
+	     font-style: italic;
+	 }
 	</style>
     </head>
     <body>
-	<header style="text-align: center;">
-	    <h1 id="title">Johanna Odersky</h1>
-	    <p>Lives and works in Frankfurt am Main, Germany</p>
-	    <p>johanna.odersky@gmail.com</p>
-	</header>
-	<nav>
-	    <ul>
-		{% for work in site.works %}
-		<li><a href="/works#{{work.title}}">{{work.title}}</a></li>
-		{% endfor %}
-	    </ul>
-	    <span>Iku</span>
-	    <ul>
-		<li><a href="https://genot.bandcamp.com/album/fugue-some-temporal-patterns-other-than-the-forward-march">Fugue: Some Temporal Patterns Other Than the Forward March</a></li>
-		<li><a href="https://soundcloud.com/ikukojohanna">SoundCloud</a></li>
-	    </ul>
-	</nav>
-	<main>
-	    {{ content }}
-	</main>
+	<div class="container">
+	    <header>
+		<h1 id="title">Johanna Odersky</h1>
+		<ul>
+		    <li>Lives and works in Frankfurt am Main, Germany</li>
+		    <li>johanna.odersky@gmail.com</li>
+		</ul>
+	    </header>
+	    <nav>
+		<h2></h2>
+		<ul>
+		    {% for work in site.works %}
+		    <li><a href="/works#{{work.title}}">{{work.title}}</a></li>
+		    {% endfor %}
+		</ul>
+		<h2 style="text-align: right;">Iku</h2>
+		<ul style="text-align: right; padding-right: 40px;">
+		    <li><a href="https://genot.bandcamp.com/album/fugue-some-temporal-patterns-other-than-the-forward-march">Fugue: Some Temporal Patterns Other Than the Forward March</a></li>
+		    <li><a href="https://soundcloud.com/ikukojohanna">SoundCloud</a></li>
+		</ul>
+	    </nav>
+	    <main>
+		{{ content }}
+	    </main>
+	</div>
     </body
 </html>
