@@ -20,17 +20,24 @@
 	     text-align: center;
 	     font-size: small;
          }
+	 aside {
+	     position:fixed;
+	     padding-left: 35px;
+	 }
+	 aside ul {
+	     list-style: none;
+	     margin-left: 0px;
+	     padding: 0px;
+	 }
+	 h1 {
+	     font-style:initial;
+	     font-size:17px;
+	 }
 	 .center {
 	     display: block;
 	     margin-left: auto;
 	     margin-right: auto;
 	     width: 50%;
-	 }
-	 h1{
-	     font-style:initial;
-	     font-size:17px;
-	     position:fixed;
-	     padding-left: 35px;
 	 }
 	 .underlined {
              text-decoration: underline;
@@ -47,12 +54,14 @@
 	</style>
     </head>
     <body>
-	<h1>Johanna Odersky</h1>
-	<p style="color: blue">
-	    <li><a href="https://soundcloud.com/ikukojohanna" class="underlined">Iku</a></li>
-	    <br/>
-	    <li><a href="mailto:johanna.odersky@gmail.com" class="underlined" target="_top">Contact</a></li>
-	</p>
+	<aside>
+	    <h1>Johanna Odersky</h1>
+	    <ul style="color: blue">
+		<li><a href="https://soundcloud.com/ikukojohanna" class="underlined">Iku</a></li>
+		<br/>
+		<li><a href="mailto:johanna.odersky@gmail.com" class="underlined" target="_top">Contact</a></li>
+	    </ul>
+	</aside>
 	<img src="images/image2.jpg" width="500"class="center">
 	<img src="images/image1.jpg" width="1000"class="center">
 	<img src="images/image3.jpg" width="500" class="center">
