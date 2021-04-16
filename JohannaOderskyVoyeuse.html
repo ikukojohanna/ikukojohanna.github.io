@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Johanna Odersky</title>
+
+
+  <style>
+    * {
+      font-family: Libre Baskerville;
+      line-height: 1.5;
+      margin: 0px;
+
+
+    }
+
+    body {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+
+    body {
+      background-color: white;
+
+    }
+
+    ul,
+    #myUL {
+      list-style-type: none;
+      margin: 20px 0;
+
+
+    
+
+    }
+
+    #myUL {
+      margin: 0;
+      padding: 0;  
+      font-size: 0.8vw;
+
+      
+
+    }
+
+    li {
+
+      padding-bottom: 10px;
+
+    }
+
+    .caret {
+      cursor: pointer;
+      -webkit-user-select: none;
+      /* Safari 3.1+ */
+      -moz-user-select: none;
+      /* Firefox 2+ */
+      -ms-user-select: none;
+      /* IE 10+ */
+      user-select: none;
+
+
+      transition: 0.3s;
+    }
+
+    .caret:hover {
+      color: black;
+      font-style: italic;
+
+
+
+
+    }
+
+
+    .nested {
+      display: none;
+    }
+
+
+    .active {
+      display: block;
+    }
+
+
+
+    .arial {
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .fontsmall {
+      font-size: 0.6vw;
+      line-height: 0.5vh;
+
+    }
+
+.bold {
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+    h1 {
+
+      font-weight: 100;
+      font-size: 1.5vw;
+
+      z-index: 2;
+      position: fixed;
+      width: 100%;
+      text-align: left;
+      padding: 3vw;
+
+
+
+    }
+
+    h2 {
+
+      text-align: center;
+      font-weight: 100;
+      padding-top: 2vw;
+z-index: 6;
+      font-size: 1vw;
+      position:relative;
+     
+    }
+
+
+    footer {
+
+      font-size: 12px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: transparent;
+      color: black;
+      text-align: center;
+      margin: 1%
+    }
+
+
+    .text {
+
+      background-color: white;
+      color: black;
+
+    }
+
+    .center {
+      margin-left: 50%;
+    }
+
+
+    .position {
+      position: fixed;
+
+      z-index: 3;
+
+      padding-top: 7vw;
+      padding-left: 3vw;
+
+    }
+
+    .right {
+        top: 100vh;
+      background-color: transparent;
+      text-align: center;
+      z-index: 1;
+      max-width: 100vw;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      text-align: justify;
+      background-image: url("images/Topographical Souvenir/togethertrans.jpg ");
+      background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 100vw;
+  height:auto;
+
+  ;
+
+    }
+.textmiddle
+ {
+  max-width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200vh;
+
+  
+
+}
+    p {
+      font-size: 0.8vw;
+      font-weight: lighter;
+      height: 100vh;
+      white-space: pre-line;
+      z-index: 3;
+      margin: 20px;
+      padding-top: 2vw;
+      display: inline-block;
+      line-height: 1,5;      
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+
+    .flickity-enabled {
+      position: relative;
+      display: inline-block;
+
+      top: 12%;
+    }
+
+    .flickity-enabled:focus {
+      outline: none;
+    }
+
+    .flickity-viewport {
+      position: relative;
+      height: 100%;
+
+    }
+
+    .flickity-slider {
+      position: relative;
+      width: 100%;
+      height: 50%;
+    }
+
+    /* draggable */
+
+    .flickity-enabled.is-draggable {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .flickity-enabled.is-draggable .flickity-viewport {
+      cursor: move;
+      cursor: -webkit-grab;
+      cursor: grab;
+    }
+
+    .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+      cursor: -webkit-grabbing;
+      cursor: grabbing;
+    }
+
+    /* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+      top: 38vh;
+
+      position: absolute;
+      width: 3vw;
+      height: 4vh;
+      border: none;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+      background-color: none;
+      opacity: 0.5;
+      transition: 0.3s;
+  /*vertically center 
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);*/
+    }
+
+    .flickity-prev-next-button:hover {
+      opacity: 1;
+    }
+
+
+    .flickity-prev-next-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 5px white;
+    }
+
+    .flickity-prev-next-button:active {
+      filter: alpha(opacity=60);
+      /* IE8 */
+      opacity: 0.6;
+    }
+
+    .flickity-prev-next-button.previous {
+      left: 8vw;
+    }
+
+    .flickity-prev-next-button.next {
+      right: 8vw;
+
+    }
+
+    /* right to left */
+    .flickity-rtl .flickity-prev-next-button.previous {
+      left: auto;
+      right: 10%;
+    }
+
+    .flickity-rtl .flickity-prev-next-button.next {
+      right: auto;
+      left: 10%;
+    }
+
+    .flickity-prev-next-button:disabled {
+      filter: alpha(opacity=30);
+      /* IE8 */
+      opacity: 0.3;
+      cursor: auto;
+    }
+
+    .flickity-prev-next-button svg {
+      position: absolute;
+      left: 20%;
+      top: 0%;
+      width: 60%;
+      height: 60%;
+    }
+
+    .flickity-prev-next-button .arrow {
+      fill: black;
+      
+      
+    }
+
+    /* color & size if no SVG - IE8 and Android 2.3 */
+    .flickity-prev-next-button.no-svg {
+      color: #333;
+      font-size: 26px;
+    }
+
+    /* ---- page dots ---- */
+
+
+
+    /* external css: flickity.css */
+
+
+
+
+
+
+
+
+
+
+
+
+    .gallery {
+      width: 100%;
+      position: absolute;
+      text-align: center;
+height: 100%;
+
+    }
+
+    .gallery-cell {
+
+      background-color: transparent;
+
+      width: 100%;
+      max-height: 90vh;
+      z-index: 1;
+      position: relative;
+      text-align: center;
+
+
+
+
+    }
+
+    /* cell number */
+    .gallery-cell:before {
+      display: block;
+      line-height: 200px;
+      font-size: 80px;
+      color: none;
+    }
+
+
+
+    figure {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      display: inline-block;
+
+
+
+
+    }
+
+    figure img {
+      max-height: 75vh;
+      max-width: 75vw;
+
+    }
+
+    figure figcaption {
+      text-align: center;
+      padding: 1%;
+      font-size: 0.8vw;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>
+    Johanna Odersky
+  </h1>
+
+  <div class="position">
+
+
+
+
+
+    <ul id="myUL">
+     
+
+        <li><span class="caret"><a href="JohannaOderskyWorks2.html">Selected works</a></span>          </li>
+          <li><span class="caret">Exhibitions</span>
+            <ul class="nested">
+                <li> <span class="caret"><a href="JohannaOderskyVoyeuse.html"><span class="italic"> Voyeuse</span> with Sans titre (2016), Paris</a></span></li>
+
+              <li> <span class="caret"><a href="JohannaOderskyTK.html"><span class="italic"> Time
+                      Keepers</span> at Intersticio, London</a></span></li>
+                    </ul></li>
+                      <li><span class="caret"><a href="mailto:johanna.odersky@gmail.com" target="_top">Contact</a></span>
+          </li>
+        </ul>       
+
+           
+
+
+
+
+  </div>
+<h2><span class="italic">Voyeuse</span> with <a href="https://www.sanstitre2016.com/" style="text-decoration:none">Sans titre (2016), Paris</a> </h2>
+<div class="right"><div class="textmiddle"> <p><span class="bold"><span class="italic">Voyeuse</span> an offsite exhibition with <a href="https://www.sanstitre2016.com/" style="text-decoration:none">Sans titre (2016), Paris</a></span>
+    April 2 – 24, 2021
+    
+   EN
+
+    The title of the exhibition, chosen by Johanna Odersky, makes direct reference to its particular context. « Voyeuse » can be seen only from the road, at all hour of the day and night. It exposes itself to the regard of spectators that haven’t necessarily solicited it, in the manner of a voyeur who spies upon intimate moments which aren’t necessarily offered to him. The domestic sphere, which Odersky associates with that of the shop window, is traditionally considered the privileged place of these moments of intimacy. It’s characterised by its ambiguity, at once a site of oppression and constraint, but also of emancipation for the “voyeusEs”.
+ 
+    Johanna Odersky conceives her artistic practice and her music and sound experiments as being intimately linked and complementary. Realised specifically for this shopwindow at 10 rue Bonaparte in the 6th arrondissement of Paris, this new body of work continues the artist’s approach of measuring time by the layering of motifs and the creation of a pictorial melody. Johanna Odersky takes an interest in the movements that characterise our relation to time, to certain phenomena like the rhythm of day and night, the change of seasons, or the waxing and waning of the moon. These cyclical actions define the composition of her drawings and paintings, typified by circular forms. The cycles can change or merge according to certain events, and the artist explores these new modes of synchronisation and harmony.
+     
+    Odersky makes an analogy between these sensorial acts and architectural references linked to Art Nouveau and Symbolism. The arabesque motif that she develops can be compared to a partition: with her particular attention to the spatial structure, she abstracts certain dynamics, certain relations, certain harmonies rather than representing something visible to the human eye. The artist also employs a diamond motif. It refers to the realm of heraldry, where its use permitted to characterise a woman as single or widowed, whose destiny was not, or no longer, linked to that of a man. These diamonds are composed of intertwined rulers, measuring devices par excellence. They appear as two shields, protecting a free form in the center of the composition, which seems to turn endlessly.
+
+     
+    FR
+
+    Le titre de l’exposition, choisi par Johanna Odersky, fait directement référence au contexte particulier de cette exposition. « Voyeuse » ne peut être vue que depuis la rue, à toute heure du jour et de la nuit. Elle s’exhibe au regard de spectateurs qui ne l’ont pas nécessairement sollicité, au même titre qu’un voyeur épie des moments d’intimité qui ne lui sont pas nécessairement offerts. L’espace domestique, qu’Odersky associe à celui de la vitrine, est traditionnellement considéré comme l’endroit privilégié de ces moments d’intimité. Il se caractérise par son ambivalence, à la fois lieu d’oppression et de contrainte, mais également d’émancipation pour les voyeusEs.
+ 
+Johanna Odersky conçoit sa pratique artistique et ses expérimentations sonores et musicales comme étant intimement liées et complémentaires. Réalisé spécifiquement pour cette vitrine au 10 rue Bonaparte dans le 6ème arrondissement de Paris, ce nouveau corpus d’œuvres poursuit la démarche de l’artiste sur la mesure du temps par la superposition de motifs et la création d’une mélodie picturale. Johanna Odersky s’intéresse aux mouvements qui caractérisent notre rapport au temps, à certains phénomènes comme le rythme du jour et de la nuit, les changements de saison ou encore la croissance et le déclin de la lune. Ces actions cycliques définissent la composition de ses dessins et peintures, aux contours circulaires. Les cycles peuvent s’altérer ou fusionner selon certains évènements et l’artiste explore ces nouveaux modes de synchronisation et d’harmonie.
+ 
+Odersky fait l’analogie entre ces actes sensoriels et des références architecturales liées aux périodes de l’Art Nouveau et du Symbolisme. Le motif de l’arabesque qu’elle développe peut être comparé à une partition : avec son attention particulière à la structure spatiale, elle abstrait des dynamiques, des relations, des harmonies plutôt que de représenter quelque chose qui est visible à l’œil humain. Le motif du losange est aussi utilisé par l’artiste. Il fait référence à l’univers héraldique, où son utilisation permettait de caractériser une femme encore célibataire ou veuve, dont le destin n’était pas ou plus lié à celui d’un homme. Ces losanges sont composés de règles entremêlées, objets de mesure par excellence. Ils apparaissent comme deux boucliers, protégeant une forme libre, au centre de la composition, qui semble tourner sans cesse.
+
+– Marie Madec and Eloi Boucher
+
+
+     
+    </p></div>
+</div>
+
+ <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Topographical Souvenir/together3.jpg" title="Photography by Ivan Murzin">
+      <figcaption> <span class="italic">Voyeuse</span><br> Installation view </figcaption>
+    </figure>
+  </div>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Topographical Souvenir/01-Johanna Odersky, Voyeuse, 2021, exhibition view, Sans titre (2016), Paris © Margot Montigny.jpg" title="Photography by Margot Montigny">
+      <figcaption> <span class="italic">Voyeuse</span><br> Installation view </figcaption>
+    </figure>
+  </div>
+    <div class="gallery-cell">
+        <figure>
+          <img src="images/Topographical Souvenir/01-Johanna Odersky, Voyeuse, 2021, exhibition view, Sans titre (2016), Paris © Margot Montignyc.jpg" title="Photography by Margot Montigny">
+          <figcaption> <span class="italic">Voyeuse</span><br> Installation view </figcaption>
+        </figure>
+      </div>
+    
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_01b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">All Things Nocturnal</span><br>Oil paint on folded canvas<br>2021</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_03b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">All Things Nocturnal</span> <br>Oil paint on folded canvas<br>2021</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_02b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">All Things Nocturnal</span><br>Oil paint on folded canvas<br>2021</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_11d.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Study with Lozenges (Arms of an Unmarried Woman)</span><br> colored pencil on rulers, thermoplastic, expoxy clay<br>2021</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_12b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Study with Lozenges (Arms of an Unmarried Woman)</span><br> colored pencil on rulers, thermoplastic, expoxy clay<br>2021</figcaption>
+      </figure>
+    </div>
+   
+
+  </div>
+
+
+  <script type="text/javascript" src="fLICK.js"></script>
+  <script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  </script>
+
+
+</body>
+
+</html>

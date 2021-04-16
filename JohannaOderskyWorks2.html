@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Johanna Odersky</title>
+
+
+  <style>
+    * {
+      font-family: Libre Baskerville;
+      line-height: 1.5;
+      margin: 0px;
+
+
+    }
+
+    body {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+
+    body {
+      background-color: white;
+
+    }
+
+    ul,
+    #myUL {
+      list-style-type: none;
+      margin: 20px 0;
+
+
+
+
+    }
+
+    #myUL {
+      margin: 0;
+      padding: 0;
+      font-size: 0.8vw;
+
+
+
+    }
+
+    li {
+
+      padding-bottom: 10px;
+
+    }
+
+    .caret {
+      cursor: pointer;
+      -webkit-user-select: none;
+      /* Safari 3.1+ */
+      -moz-user-select: none;
+      /* Firefox 2+ */
+      -ms-user-select: none;
+      /* IE 10+ */
+      user-select: none;
+
+
+      transition: 0.3s;
+    }
+
+    .caret:hover {
+      color: black;
+      font-style: italic;
+
+
+
+
+    }
+
+
+    .nested {
+      display: none;
+    }
+
+
+    .active {
+      display: block;
+    }
+
+
+
+    .arial {
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .italic {
+      font-style: italic;
+
+    }
+
+    .fontsmall {
+      font-size: 0.8vw;
+      line-height: 0.5vh;
+
+    }
+
+
+    h1 {
+
+      font-weight: 100;
+      font-size: 1.5vw;
+
+      z-index: 2;
+      position: fixed;
+      width: 100%;
+      text-align: left;
+      padding: 3vw;
+      position: fixed;
+
+
+
+    }
+
+    h2 {
+
+      text-align: center;
+      font-weight: 100;
+      padding-top: 2vw;
+
+      font-size: 1vw;
+
+    }
+
+
+    footer {
+
+      font-size: 12px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: transparent;
+      color: black;
+      text-align: center;
+      margin: 1%
+    }
+
+
+    .text {
+
+      background-color: white;
+      color: black;
+
+    }
+
+    .center {
+      margin-left: 50%;
+    }
+
+
+    .position {
+      position: fixed;
+
+      z-index: 3;
+
+      padding-top: 7vw;
+      padding-left: 3vw;
+
+    }
+
+    .right {
+      top: 45vw;
+      background-color: transparent;
+      text-align: center;
+      z-index: 1;
+      max-width: 52vw;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      text-align: justify;
+
+
+
+    }
+
+    .tab {
+      margin-left: 5vw;
+
+    }
+
+    p {
+      font-size: 1vw;
+      font-weight: lighter;
+      height: 100vh;
+      white-space: pre-line;
+      z-index: 3;
+      margin: 0px;
+
+      display: inline-block;
+      line-height: 1,5;      
+
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+
+    .flickity-enabled {
+      position: relative;
+      display: inline-block;
+
+      top: 12%;
+    }
+
+    .flickity-enabled:focus {
+      outline: none;
+    }
+
+    .flickity-viewport {
+      position: relative;
+      height: 100%;
+
+    }
+
+    .flickity-slider {
+      position: relative;
+      width: 100%;
+      height: 50%;
+    }
+
+    /* draggable */
+
+    .flickity-enabled.is-draggable {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .flickity-enabled.is-draggable .flickity-viewport {
+      cursor: move;
+      cursor: -webkit-grab;
+      cursor: grab;
+    }
+
+    .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+      cursor: -webkit-grabbing;
+      cursor: grabbing;
+    }
+
+    /* ---- previous/next buttons ---- */
+
+    .flickity-prev-next-button {
+      top: 50vh;
+
+      position: absolute;
+      width: 3vw;
+      height: 4vh;
+      border: none;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+      background-color: none;
+      opacity: 0.5;
+      transition: 0.3s;
+  /*vertically center 
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);*/
+    }
+
+    .flickity-prev-next-button:hover {
+      opacity: 1;
+    }
+
+    .flickity-prev-next-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 5px #09F;
+    }
+
+    .flickity-prev-next-button:active {
+      filter: alpha(opacity=60);
+      /* IE8 */
+      opacity: 0.6;
+    }
+
+    .flickity-prev-next-button.previous {
+      left: 8vw;
+    }
+
+    .flickity-prev-next-button.next {
+      right: 8vw;
+
+    }
+
+    /* right to left */
+    .flickity-rtl .flickity-prev-next-button.previous {
+      left: auto;
+      right: 10%;
+    }
+
+    .flickity-rtl .flickity-prev-next-button.next {
+      right: auto;
+      left: 10%;
+    }
+
+    .flickity-prev-next-button:disabled {
+      filter: alpha(opacity=30);
+      /* IE8 */
+      opacity: 0.0;
+      cursor: auto;
+    }
+
+    .flickity-prev-next-button svg {
+      position: absolute;
+      left: 20%;
+      top: 0%;
+      width: 60%;
+      height: 60%;
+    }
+
+    .flickity-prev-next-button .arrow {
+      fill: black;
+      
+      
+    }
+
+    /* color & size if no SVG - IE8 and Android 2.3 */
+    .flickity-prev-next-button.no-svg {
+      color: #333;
+      font-size: 26px;
+    }
+
+    /* ---- page dots ---- */
+
+
+
+    /* external css: flickity.css */
+
+
+
+
+
+
+
+    .gallery {
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding-top: 12vh;
+
+
+
+
+    }
+
+    .gallery-cell {
+
+      background-color: transparent;
+
+      width: 100%;
+      max-height: 90vh;
+      z-index: 1;
+      position: relative;
+      text-align: center;
+
+
+
+
+    }
+
+    /* cell number */
+    .gallery-cell:before {
+      display: block;
+      line-height: 200px;
+      font-size: 80px;
+      color: none;
+    }
+
+
+
+    figure {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      display: inline-block;
+
+
+
+
+    }
+
+    figure img {
+      max-height: 75vh;
+      max-width: 75vw;
+
+    }
+
+    figure figcaption {
+      text-align: center;
+      padding: 1%;
+      font-size: 0.8vw;
+
+    }
+
+
+    .dropbtn {
+      background-color: transparent;
+      border: none;
+      color: black;
+      transition: 0.3s;
+      text-decoration: none;
+      cursor: auto;
+      font-style: normal;
+      margin: 0;
+      padding: 0;
+      font-size: 0.8vw;
+      list-style-type: none;
+      padding-bottom: 10px;
+
+
+
+    }
+
+    .dropbtn:hover {
+      opacity: 1;
+      color: black;
+      font-style: italic;
+
+    }
+
+    .dropdown {
+top: 0;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      padding-left: 7vw;
+      padding-top: 0;
+      background-color:transparent;
+
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 5px;
+      text-decoration: none;
+      display: block;
+
+
+
+    }
+
+
+    .dropdown-content a:hover {
+      color: black;
+      font-style: italic;
+
+      
+
+
+
+
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+
+
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color:transparent;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>
+    Johanna Odersky
+  </h1>
+
+  <div class="position">
+
+
+
+
+
+    <ul id="myUL">
+
+
+     
+
+            <li><span class="caret"><a href="JohannaOderskyWorks2.html">Selected works</a></span>          </li>
+              <li><span class="caret">Exhibitions</span>
+                <ul class="nested">
+                  <li> <span class="caret"><a href="JohannaOderskyVoyeuse.html"><span class="italic"> Voyeuse</span> with Sans titre (2016), Paris</a></span></li>
+
+                  <li> <span class="caret"><a href="JohannaOderskyTK.html"><span class="italic"> Time
+                          Keepers</span> at Intersticio, London</a></span></li></ul></li>
+              
+              <li><span class="caret"><a href="mailto:johanna.odersky@gmail.com" target="_top">Contact</a></span>
+              </li>
+            </ul>
+
+  </div>
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_01b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">All Things Nocturnal</span> <br> Oil paint on folded canvas <br> 2021</figcaption>
+    </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Topographical Souvenir/johanna_2021_03b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">All Things Nocturnal</span> <br> Oil paint on folded canvas <br> 2021</figcaption>
+    </figure>
+    </div>
+    <div class="gallery-cell">
+        <figure>
+          <img src="images/Topographical Souvenir/johanna_2021_02b.jpg" title="Photography by Ivan Murzin">
+          <figcaption> <span class="italic">All Things Nocturnal</span> <br> Oil paint on folded canvas <br> 2021</figcaption>
+      </figure>
+      </div>
+
+  </div>
+
+  <!-- Flickity HTML init -->
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Echolalia/Echolalia1.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Echolalia</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Echolalia/Echolalia3.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Echolalia</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Echolalia/Echolalia2.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Echolalia</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Echolalia/Echolalia4b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Echolalia</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+      </figure>
+  
+    </div>
+  </div>
+
+
+
+ <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Lemaniana/TimeKeeper8bb.jpg" title="Photography by Ivan Murzin">
+      <figcaption> <span class="italic">Time Keeper VIII</span> <br> Watercolor on paper, frame made of thermoplastic, epoxy clay, glass <br> 2021</figcaption>
+    </figure>
+  </div>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Lemaniana/TimeKeeper8d.jpg" title="Photography by Ivan Murzin">
+      <figcaption> <span class="italic">Time Keeper VIII</span> <br> Watercolor on paper<br>2021 </figcaption>
+    </figure>
+  </div>
+
+</div>
+  
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Lemaniana/TimeKeeper7ab.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Time Keeper VII</span> <br> Watercolor on paper, frame made of thermoplastic, epoxy clay, glass <br> 2021</figcaption>
+    </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Lemaniana/TimeKeeper7b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Time Keeper VII</span> <br> Watercolor on paper <br> 2021</figcaption>
+    </figure>
+    </div>
+
+  </div>
+
+
+ 
+
+
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Lemaniana/image4.jpg" title="">
+      <figcaption> <span class="italic">Topographical Souvenir II</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Topographical Souvenir/johanna_2021_11d.jpg" title="">
+      <figcaption> <span class="italic">Study with Lozenges (Arms of an Unmarried Woman)</span><br> colored pencil on rulers, thermoplastic, expoxy clay<br>2021</figcaption>
+    </figure>
+  </div>
+  <div class="gallery-cell">
+    <figure>
+      <img src="images/Topographical Souvenir/johanna_2021_12b.jpg" title="">
+      <figcaption> <span class="italic">Study with Lozenges (Arms of an Unmarried Woman)</span><br> colored pencil on rulers, thermoplastic, expoxy clay<br>2021</figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+
+ <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK4.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper I</span> <br> Watercolor on paper, frame made of thermoplastic, silk-paper, steel <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK5.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper I</span> <br> Watercolor on paper<br>2020</figcaption>
+      </figure>
+    </div>
+  
+  </div>
+   <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK6.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper II</span> <br> Watercolor on paper, frame made of thermoplastic, silk-paper, steel <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK7.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper II</span> <br> Watercolor on paper<br>2020</figcaption>
+      </figure>
+    </div>
+  
+  </div>
+   <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK8.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper III</span> <br> Watercolor on paper, frame made of thermoplastic, silk-paper, steel <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK9.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Time Keeper III</span> <br> Watercolor on paper<br>2020</figcaption>
+      </figure>
+    </div>
+  
+  </div>
+
+    <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK10.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Types of Clouds II and III</span> <br> Oil paint on folded canvas <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK11.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Types of Clouds II</span> <br> Oil paint on folded canvas<br>2020</figcaption>
+      </figure>
+    </div>
+  
+    <div class="gallery-cell">
+        <figure>
+          <img src="images/TK12.jpg" title="Photography by Theo Christelis">
+          <figcaption> <span class="italic">Types of Clouds III</span> <br> Oil paint on folded canvas<br>2020</figcaption>
+        </figure>
+      </div>
+  </div>
+
+    <!-- Flickity HTML init -->
+ <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK15.jpg" title="Photography by Theo Christelis">
+        <figcaption> <span class="italic">Types of Clouds I</span> <br> Oil paint on folded canvas<br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/TK16.jpg">
+        <figcaption> <span class="italic">Types of Clouds I</span> <br>Oil paint on folded canvas<br>2020</figcaption>
+      </figure>
+    </div>
+  
+  </div>
+
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/DaysMoonsSeasons/greenlonglong.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Days, Moons, Seasons,<br> Do Well With a Spinning Mind</span> <br> Oil paint on folded canvas
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/DaysMoonsSeasons/rundg_johanna2_3.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Days, Moons, Seasons,<br> Do Well With a Spinning Mind</span> <br> Oil paint on folded canvas
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Lemaniana/image1.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Adrift in Time With No Land in Sight</span> <br> Oil paint on folded canvas
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Lemaniana/image2.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Adrift in Time With No Land in Sight</span> <br> Oil paint on folded canvas
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Lemaniana/image3.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Adrift in Time With No Land in Sight</span> <br> Oil paint on folded canvas
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Newfound instincts/rundg_johanna_4.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Newfound Instincts</span> <br> Forged steel, confetti
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Newfound instincts/scissorvert.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Newfound Instincts</span> <br> Forged steel, confetti
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Nowheretostand/johanna_2021_13b.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Nowhere to Stand</span> <br> Forged steel
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Nowheretostand/nowhere2.jpg" title="Photography by Eike Walkenhorst">
+        <figcaption> <span class="italic">Nowhere to Stand</span> <br> Forged steel
+          <br> 2020</figcaption>
+      </figure>
+    </div>
+
+
+  </div>
+  
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Toanewage1.jpg" >
+        <figcaption> <span class="italic">To a New Age</span> <br> Watercolor on paper
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/toanewage2.jpg" >
+        <figcaption> <span class="italic">To a New Age</span> <br> Watercolor on paper
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Bleedingheart1.jpg" >
+        <figcaption> <span class="italic">A Bleeding Heart, Running From a Heavy Chest</span> <br> Ink and watercolor on paper
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Bleedingheart2.jpg" >
+        <figcaption> <span class="italic">A Bleeding Heart, Running From a Heavy Chest</span> <br> Ink and watercolor on paper
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/seriesofors.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Series of “Ors”</span> <br> Screenprint and watercolor on paper, lightbulbs, wiggly eyes
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/seriesofors2.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Series of “Ors”</span> <br> Screenprint and watercolor on paper, lightbulbs, wiggly eyes
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/held2.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Held Together by so Little Skin </span> <br> Wire and silk paper, LEDs
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/held3.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Held Together by so Little Skin </span> <br> Wire and silk paper, LEDs
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/Held1.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Held Together by so Little Skin </span> <br> Wire and silk paper, LEDs
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/held4.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">Held Together by so Little Skin </span> <br> Wire and silk paper, LEDs
+          <br> 2019</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+
+
+  <!-- Flickity HTML init -->
+  <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL1.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL2.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL2d.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL3.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL4.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL5.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL6.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-cell">
+      <figure>
+        <img src="images/IYL7.jpg" title="Photography by Ivan Murzin">
+        <figcaption> <span class="italic">In Your Limbs and in the Ways They Move</span> <br> Cut-out steel sheet, patina, spray paint
+          <br> 2018</figcaption>
+      </figure>
+      <br>
+      <br>
+    </div>
+  </div>
+
+
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="fLICK.js"></script>
+  <script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  </script>
+
+
+</body>
+
+</html>
